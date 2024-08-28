@@ -1,6 +1,14 @@
 <x-app-layout>
+
+
+
+
     <x-slot name="header">
-        <section class="relative ">
+        {{-- <section class="static">
+            <img class="absolute object-cover" src="{{ Storage::url('/test/template-icon-post.png') }}" alt="{{ $post->title }}">
+        </section> --}}
+
+        <section class="relative">
             <section>
                 <h2 class="font-semibold text-3xl text-gray-800 leading-tight">{{ $post->title }}</h2>
 
@@ -30,8 +38,8 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white  overflow-hidden shadow-sm sm:rounded-lg flex justify-center">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg flex justify-center">
                 <div class="p-6 w-full my-4 mx-8 text-gray-900 flex flex-col gap-y-2">
 
                     @foreach ($post->elements as $element)
@@ -39,9 +47,9 @@
                             <h1 class="font-semibold text-xl">{{ $element->subtitle }}</h1>
 
 
-                            <section class="flex flex-col gap-y-2 p-2">
+                            <section class="flex flex-col gap-y-4 p-2">
                                 @foreach ($element->convertCharSet() as $lines)
-                                    <p>{{ $lines }}</p>
+                                    <p class="text-justify">{{ $lines }}</p>
                                 @endforeach
                             </section>
 

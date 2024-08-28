@@ -52,6 +52,6 @@ class PostController extends Controller
             ]);
         }
 
-        return redirect()->route('post.view', ['id' => $POST->id]);
+        return redirect()->route('post.show', ['id' => $POST->id]);
     }
 }

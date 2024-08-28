@@ -22,7 +22,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('post_id')->constrained()->onDelete('cascade');
             $table->string('subtitle');
-            $table->string('text');
+            $table->longText('text');
             $table->timestamps();
         });
     }

@@ -50,6 +50,21 @@
                         @csrf
                     </form>
 
+
+                    <div>
+                        <span class="text-xl mb-2">Novo elemento</span>
+                        <div class="grid grid-cols-2 p-4 items-center gap-2">
+                            <section class="border rounded-lg w-full text-center h-24 flex flex-col justify-center">
+                                <span class="material-symbols-outlined text-3xl">description</span>
+                                <button type="button" onclick="addNewLine()" class="text-xl hover:scale-[1.05] hover:underline transition duration-300 ease-in-out">Inserir paragrafo</button>
+                            </section>
+                            <section class="border rounded-lg w-full text-center h-24 flex flex-col justify-center">
+                                <span class="material-symbols-outlined text-3xl">image</span>
+                                <button onclick="addNewLine()" class="text-xl hover:scale-[1.05] hover:underline transition duration-300 ease-in-out">Inserir imagem</button>
+                            </section>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>

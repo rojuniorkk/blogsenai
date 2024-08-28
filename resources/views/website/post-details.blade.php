@@ -17,8 +17,10 @@
                     <form action="{{ route('post.action') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="id" value="{{ $post->id }}">
-                        <button type="submit" name="action" value="edit" class="material-symbols-outlined rounded-lg text-yellow-500 p-1">edit</button>
-                        <button type="submit" name="action" value="delete" class="material-symbols-outlined rounded-lg text-red-500 p-1">delete</button>
+                        <button type="submit" name="action" value="edit"
+                            class="material-symbols-outlined rounded-lg text-yellow-500 p-1">edit</button>
+                        <button type="submit" name="action" value="delete"
+                            class="material-symbols-outlined rounded-lg text-red-500 p-1">delete</button>
                     </form>
 
                 </section>
@@ -30,12 +32,21 @@
     <div class="py-12">
         <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white  overflow-hidden shadow-sm sm:rounded-lg flex justify-center">
-                <div class="p-6 w-full my-4 mx-8 text-gray-900 flex flex-col gap-y-6">
+                <div class="p-6 w-full my-4 mx-8 text-gray-900 flex flex-col gap-y-2">
 
-                    @foreach ($post->elements as $a)
+                    @foreach ($post->elements as $element)
                         <div class="">
-                            <h1 class="font-semibold text-xl">{{ $a->subtitle }}</h1>
-                            <p class="text-justify p-2">{{ $a->text }}</p>
+                            <h1 class="font-semibold text-xl">{{ $element->subtitle }}</h1>
+
+
+                            <section class="flex flex-col gap-y-2 p-2">
+                                @foreach ($element->convertCharSet() as $lines)
+                                    <p>{{ $lines }}</p>
+                                @endforeach
+                            </section>
+
+
+
                         </div>
                     @endforeach
 
@@ -43,4 +54,9 @@
             </div>
         </div>
     </div>
+
+    <x-slot name="scpBody">
+        <script src="{{ asset('js/post.js') }}" type="text/javascript"></script>
+    </x-slot>
+
 </x-app-layout>

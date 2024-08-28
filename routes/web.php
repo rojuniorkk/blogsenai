@@ -23,6 +23,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/post/criar', [PostController::class, 'index'])->name('post.new');
     Route::post('/post/publish', [PostController::class, 'create'])->name('post.create');
     Route::get('/post/view/{id}', [PostController::class, 'show'])->name('post.show');
+    Route::post('/postaction', [PostController::class, 'action'])->name('post.action');
 
     //Profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

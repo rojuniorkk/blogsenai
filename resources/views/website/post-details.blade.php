@@ -13,8 +13,14 @@
 
             @if (Auth::check() && Auth::user()->id == $post->user_id)
                 <section class="absolute bottom-0 right-0 p-2 flex justify-end gap-2">
-                    <a class="material-symbols-outlined rounded-lg text-yellow-500 p-1" href="#">edit</a>
-                    <a class="material-symbols-outlined rounded-lg text-red-500 p-1" href="#">delete</a>
+
+                    <form action="{{ route('post.action') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" name="id" value="{{ $post->id }}">
+                        <button type="submit" name="action" value="edit" class="material-symbols-outlined rounded-lg text-yellow-500 p-1">edit</button>
+                        <button type="submit" name="action" value="delete" class="material-symbols-outlined rounded-lg text-red-500 p-1">delete</button>
+                    </form>
+
                 </section>
             @endif
         </section>
